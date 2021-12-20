@@ -250,51 +250,88 @@ vector<long long> matrix_binpow(vector<T1> &matrix, int matrix_size, T2 power) {
 
 // Tweakable defines:
 // #define int long long
-// #define endl '\n'
+#define endl '\n'
+
+
+int count(vector<int> &a, vector<vector<int>> &dp, int i, int j) {
+    if (j > i) return INT_MAX / 2;
+
+    if (j <= 0) {
+        if (i < 1) return 0;
+
+        if (a[i] <= 100) {
+            return dp[i][j] = min(count(a, dp, i - 1, j + 1), count(a, dp, i - 1, j) + a[i]);
+        } else {
+            return count(a, dp, i - 1, j + 1);
+        }
+
+    } else {
+        if (dp[i][j] != -1) return dp[i][j];
+
+        if (a[i] > 100) {
+            return dp[i][j] = min(count(a, dp, i - 1, j + 1), count(a, dp, i - 1, j - 1) + a[i]);
+        } else {
+            return dp[i][j] = min(count(a, dp, i - 1, j + 1), count(a, dp, i - 1, j) + a[i]);
+        }
+    }
+}
+
+void get_result(vector<int> &a, vector<vector<int>> &dp, vector<int> &used, int i, int j) {
+    if (j >= i) return;
+
+    if (j <= 0) {
+        if (i < 1) return;
+
+        if (a[i] > 100 || count(a, dp, i, j) == count(a, dp, i - 1, j + 1)) {
+            used.push_back(i);
+            get_result(a, dp, used, i - 1, j + 1);
+        } else {
+            get_result(a, dp, used, i - 1, j);
+        }
+
+    } else {
+        if (count(a, dp, i - 1, j + 1) == count(a, dp, i, j)) {
+            used.push_back(i);
+            get_result(a, dp, used, i - 1, j + 1);
+        } else {
+            get_result(a, dp, used, i - 1, (a[i] <= 100 ? j : j - 1));
+        }
+    }
+}
 
 signed main() {
     ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 
     int n;
     cin >> n;
-    vector<int> a(n);
-    for (int i = 0; i < n; ++i) cin >> a[i];
 
-    vector<pair<int, int>> tmp_v_int(n, 0);
-    vector<vector<pair<int, int>>> d(n + 1, tmp_v_int);
+    int k1 = 0;
+    int k2 = 0;
 
-    for (int i = 0; i < n; ++i) {
-        d[i][0] = 0;
+    vector<int> a(n + 1);
+    for (int i = 1; i <= n; ++i) cin >> a[i];
+
+    vector<int> tmp_v_int(n + 2, -1);
+    vector<vector<int>> dp(n + 1, tmp_v_int);
+
+    int ans = INT_MAX;
+
+    for (int i = 0; i <= n; i++) {
+        if (ans >= count(a, dp, n, i)) {
+            ans = count(a, dp, n, i);
+            k1 = i;
+        }
     }
 
-    for (int i = 0; i <= n; ++i) {
-        if (i > 0) cout << a[i - 1] << '\t'; else cout << '\t';
-        for (int j = 0; j < n; ++j) {
-            cout << '(' << d[i][j].first << ',' << d[i][j].second
-                 << ')' << ' ';
-        }
-        cout << endl;
-    }
-    cout << endl;
+    cout << ans << endl;
 
-    for (int i = 1; i <= n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (d[i - 1][j] + a[i - 1])
-            d[i][j] = max(d[i][j], d[i - 1][j] + a[i - 1]);
-            if (a[i - 1] > 100) {
-                d[i][j + 1] = max(d[i][j], d[i - 1][j]);
-            }
-        }
-        for (int i = 0; i <= n; ++i) {
-            if (i > 0) cout << a[i - 1] << '\t'; else cout << '\t';
-            print_array(d[i]);
-        }
-        cout << endl;
-    }
+    vector<int> used;
 
-    // for (int i = 0; i <= n; ++i) {
-    //     if (i > 0) cout << a[i - 1] << '\t'; else cout << '\t';
-    //     print_array(d[i]);
-    // }
-    // cout << endl;
+    get_result(a, dp, used, n, k1);
+
+    cout << k1 << ' ' << used.size() << endl;
+    while (!used.empty()) {
+        cout << used.back() << endl;
+        used.pop_back();
+    }
 }
