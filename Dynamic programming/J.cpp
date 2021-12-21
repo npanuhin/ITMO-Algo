@@ -69,11 +69,11 @@ bool contains(vector<T> &a, T x) {for(size_t i=0;i<a.size();++i){if(a[i]==x){ret
 
 template<class InputIt, class T>
 typename iterator_traits<InputIt>::difference_type
-rcount(InputIt first, InputIt last, const T& value){typename iterator_traits<InputIt>::difference_type ret=0;for(;first!=last;++first){if(*first!=value)ret++;}return ret;}
+rcount(InputIt first, InputIt last, const T& value){typename iterator_traits<InputIt>::difference_type ret=0;for(;first!=last;++first){if(*first!=value)++ret;}return ret;}
 
-string cut(string &s, int start, int end) {string r;while(max(start,0)<min((int)s.size(),end)){r+=s[start++];}return r;}
+string cut(string &s, int start, int end) {string r;while(max(start,0)<min((int)s.size(),end)){r+=s[++start];}return r;}
 template <class T>
-vector<T> cut(vector<T> &a, int start, int end) {vector<T> r;while(max(start,0)<min((int)a.size(),end)){r.emplace_back(a[start++]);}return r;}
+vector<T> cut(vector<T> &a, int start, int end) {vector<T> r;while(max(start,0)<min((int)a.size(),end)){r.emplace_back(a[++start]);}return r;}
 
 template <class T1, class T2>
 bool equal(vector<T1> &a, vector<T2> &b) {if (a.size() != b.size()) return false;for (size_t i = 0; i < a.size(); ++i) if (a[i] != b[i]) return false;return true;}
@@ -252,56 +252,57 @@ vector<long long> matrix_binpow(vector<T1> &matrix, int matrix_size, T2 power) {
 // #define int long long
 #define endl '\n'
 
-const int INF = INT_MAX / 2;
 
+bool check(int x, int y, int n) {
+    bool tile1, tile2, tile3, tile4;
+
+    for (int i = 0; i < n - 1; ++i) {
+
+        tile1 = ((x & (1 << i)) != 0);
+
+        tile2 = ((x & (1 << i + 1)) != 0);
+
+        tile3 = ((y & (1 << i)) != 0);
+
+        tile4 = ((y & (1 << i + 1)) != 0);
+
+        if (tile1 == tile2 && tile2 == tile3 && tile3 == tile4) return false;
+    }
+
+    return true;
+}
 
 signed main() {
     ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 
-    int n;
-    cin >> n; ++n;
+    int n, m;
+    cin >> n >> m;
 
-    vector<int> tmp_v_int(n, 0);
-    vector<vector<int>> a(n, tmp_v_int);
-    for (int i = 1; i < n; ++i) {
-        for (int j = 1; j < n; ++j) cin >> a[i][j];
-    }
+    if (n > m) swap(n, m);
 
-    // for (auto line : a) {
-    //     print_array(line);
-    // }
+    int size = 1 << n;
 
-    vector<int> tmp_v_int2(1 << n, INF);
-    vector<vector<int>> dp(n, tmp_v_int2);
-    dp[0][0] = 0;
+    vector<int> tmp_v_int(size, 0);
+    vector<vector<int>> a(m, tmp_v_int);
+    vector<vector<int>> dp(size, tmp_v_int);
 
-    // for (auto line : dp) {
-    //     print_array(line);
-    // }
+    for (int i = 0; i < size; ++i) a[0][i] = 1;
 
-    for (int mask = 0; mask <= (1 << n) - 1; ++mask) {
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (mask & (1 << j)) {
-                    dp[i][mask] = min(dp[i][mask], dp[j][mask - (1 << j)] + a[i][j]);
-                }
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
+            if (check(i, j, n)) {
+                dp[i][j] = 1;
             }
         }
     }
 
-    cout << dp[0][(1 << n) - 1] << endl;
-
-    int i = 0, mask = (1 << n) - 1;
-    while (mask > 0) {
-        for (int j = 0; j < n; ++j) {
-            if ((mask & (1 << j)) > 0 && dp[i][mask] == dp[j][mask - (1 << j)] + a[i][j]) {
-                if (j != 0) {
-                    cout << j << ' ';
-                }
-                i = j;
-                mask -= 1 << j;
+    for (int k = 1; k < m; ++k) {
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+                a[k][i] = a[k][i] + a[k - 1][j] * dp[j][i];
             }
         }
     }
-    cout << endl;
+
+    cout << sum(a[m - 1]) << endl;
 }
