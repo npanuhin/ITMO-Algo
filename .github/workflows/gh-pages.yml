@@ -1,0 +1,39 @@
+name: GitHub Pages
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build GitHub Pages
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+        with:
+          # token: ${{ secrets.PAT }}
+          ssh-key: ${{ secrets.SSH_KEY }}
+
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v1.1.14
+        with:
+          mdbook-version: 'latest'
+
+      # - name: Download mdBook extensions
+      #   run: cargo install mdbook-admonish
+
+      - name: Build mdBook
+        run: mdbook build
+
+      - name: Deploy website
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.SSH_KEY }}
+          publish_branch: gh-pages
+          publish_dir: .github/mdbook
+          force_orphan: true
+          full_commit_message: Updated GitHub Pages

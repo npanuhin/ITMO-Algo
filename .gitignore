@@ -3,3 +3,6 @@ FOCtests/
 
 # Cache
 __pycache__/
+
+# mdBook
+/.github/mdbook

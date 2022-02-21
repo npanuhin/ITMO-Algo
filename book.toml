@@ -1,0 +1,26 @@
+[book]
+title = "Алгоритмы и Структуры данных"
+description = "Homework solutions for the Algorithms and Data Structures course at ITMO University"
+authors = ["Nikita Panuhin"]
+language = "ru"
+src="."
+
+[build]
+build-dir = ".github/mdbook"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+# additional-css = []
+# additional-js = []
+no-section-label = true
+git-repository-url = "https://github.com/npanuhin/ITMO-Algo"
+edit-url-template = "https://github.com/npanuhin/ITMO-Algo/edit/master/{path}"
+# input-404 = ""
+cname = "algo.itmo.npanuhin.me"
+
+[output.html.search]
+enable = false
+
+# [preprocessor.admonish]
+# command = "mdbook-admonish"
