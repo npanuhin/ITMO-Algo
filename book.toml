@@ -22,5 +22,5 @@ cname = "algo.itmo.npanuhin.me"
 [output.html.search]
 enable = false
 
-# [preprocessor.admonish]
-# command = "mdbook-admonish"
+[preprocessor.admonish]
+command = "mdbook-admonish"
