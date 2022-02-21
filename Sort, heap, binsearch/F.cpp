@@ -252,9 +252,9 @@ vector<long long> matrix_binpow(vector<T1> &matrix, int matrix_size, T2 power) {
 #define endl '\n'
 
 signed main() {
-	ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+    ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 
-	int n, k, req;
+    int n, k, req;
     cin >> n >> k;
     vector<int> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];

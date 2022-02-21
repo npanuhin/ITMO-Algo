@@ -89,36 +89,36 @@ T lcm(T a, T b) {return a/gcd(a, b)*b;}
 long long binpow(long long a, unsigned int n) {long long r=1;while(n){if(n&1)r*=a;a*=a;n>>=1;}return r;}
 
 bool isPrime(long long num) {
-	if (num == 2) return true;
-	if (num <= 1 || num % 2 == 0) return false;
-	int upperLimit = (int)( sqrt((double)num) + 1 );
-	for (int divisor = 3; divisor <= upperLimit; divisor += 2) {
-		if (num % divisor == 0) return false;
-	}
-	return true;
+    if (num == 2) return true;
+    if (num <= 1 || num % 2 == 0) return false;
+    int upperLimit = (int)( sqrt((double)num) + 1 );
+    for (int divisor = 3; divisor <= upperLimit; divisor += 2) {
+        if (num % divisor == 0) return false;
+    }
+    return true;
 }
 
 template <class T>
 vector<long long> prefSumm(vector<T> a) {
-	vector<long long> pref_summ(a.size());
-	pref_summ[0] = (long long)a[0];
-	for (size_t i = 1; i < a.size(); ++i)
-		pref_summ[i] = pref_summ[i - 1] + (long long)a[i];
-	return pref_summ;
+    vector<long long> pref_summ(a.size());
+    pref_summ[0] = (long long)a[0];
+    for (size_t i = 1; i < a.size(); ++i)
+        pref_summ[i] = pref_summ[i - 1] + (long long)a[i];
+    return pref_summ;
 }
 
 template <class T>
 vector<int> prefixFunction(vector<T> a) {
-	int n = (int)a.length();
-	vector<int> prefix_function(n);
-	for (int i = 1; i < n; ++i) {
-		int j = prefix_function[i - 1];
-		while (j > 0 && a[i] != a[j])
-			j = prefix_function[j - 1];
-		if (a[i] == a[j]) ++j;
-		prefix_function[i] = j;
-	}
-	return prefix_function;
+    int n = (int)a.length();
+    vector<int> prefix_function(n);
+    for (int i = 1; i < n; ++i) {
+        int j = prefix_function[i - 1];
+        while (j > 0 && a[i] != a[j])
+            j = prefix_function[j - 1];
+        if (a[i] == a[j]) ++j;
+        prefix_function[i] = j;
+    }
+    return prefix_function;
 }
 
 //============================ RANDOM ============================
@@ -127,42 +127,42 @@ mt19937 RNG(time(NULL));
 mt19937_64 RNG_64(time(NULL));
 
 int randint(int start = 0, int end = INT_MAX) {
-	// return rand() % (end - start) + start + 1;
-	uniform_int_distribution<int> distrib(start, end);
-	return distrib(RNG);
+    // return rand() % (end - start) + start + 1;
+    uniform_int_distribution<int> distrib(start, end);
+    return distrib(RNG);
 }
 
 long long randll(long long start = 0, long long end = LLONG_MAX) {
-	// return rand() % (end - start) + start + 1;
-	uniform_int_distribution<long long> distrib(start, end);
-	return distrib(RNG_64);
+    // return rand() % (end - start) + start + 1;
+    uniform_int_distribution<long long> distrib(start, end);
+    return distrib(RNG_64);
 }
 
 //============================ MATRIX ============================
 
 template <class T>
 vector<T> matrix_to_array(vector<vector<T>> &matrix) {
-	int n = matrix.size(), m = matrix[0].size();
-	vector<T> res(n * m);
-	for (size_t i = 0; i < n; ++i)
-		for (size_t j = 0; j < m; ++j) res[i * n + j] = matrix[i][j];
-	return res;
+    int n = matrix.size(), m = matrix[0].size();
+    vector<T> res(n * m);
+    for (size_t i = 0; i < n; ++i)
+        for (size_t j = 0; j < m; ++j) res[i * n + j] = matrix[i][j];
+    return res;
 }
 
 template <class T>
 vector<vector<T>> array_to_matrix(vector<T> &matrix, pair<int, int> matrix_size) {
-	vector<T> tmp_v_T(matrix_size.second);
-	vector<vector<T>> res(matrix_size.first, tmp_v_T);
-	for (size_t i = 0; i < matrix_size.first; ++i) for (size_t j = 0; j < matrix_size.second; ++j) res[i][j] = matrix[i * matrix_size.first + j];
-	return res;
+    vector<T> tmp_v_T(matrix_size.second);
+    vector<vector<T>> res(matrix_size.first, tmp_v_T);
+    for (size_t i = 0; i < matrix_size.first; ++i) for (size_t j = 0; j < matrix_size.second; ++j) res[i][j] = matrix[i * matrix_size.first + j];
+    return res;
 }
 
 template <class T>
 void matrix_print(vector<T> &matrix, pair<int, int> matrix_size) {
-	for (size_t i = 0; i < matrix_size.first; ++i) {
-		for (size_t j = 0; j < matrix_size.second; ++j) cout << matrix[i * matrix_size.first + j] << ' ';
-		cout << endl;
-	}
+    for (size_t i = 0; i < matrix_size.first; ++i) {
+        for (size_t j = 0; j < matrix_size.second; ++j) cout << matrix[i * matrix_size.first + j] << ' ';
+        cout << endl;
+    }
 }
 
 template <class T>
@@ -170,72 +170,72 @@ void matrix_print(vector<vector<T>> &matrix) {for(int i=0;i<matrix.size();++i)pr
 
 template <class T1, class T2>
 vector<vector<long long>> matrix_multiply(vector<vector<T1>> &matrix1, vector<vector<T2>> &matrix2) {
-	int m = matrix1.size(), k = matrix1[0].size(), n = matrix2[0].size();
+    int m = matrix1.size(), k = matrix1[0].size(), n = matrix2[0].size();
 
-	vector<long long> tmp_v_ll(n, 0);
-	vector<vector<long long>> res(m, tmp_v_ll);
+    vector<long long> tmp_v_ll(n, 0);
+    vector<vector<long long>> res(m, tmp_v_ll);
 
-	for (size_t i = 0; i < m; ++i) {
-		for (size_t j = 0; j < n; ++j) {
-			for (size_t t = 0; t < k; ++t) {
-				res[i][j] += matrix1[i][t] * matrix2[t][j];
-				res[i][j] %= MOD;
-			}
-		}
-	}
-	return res;
+    for (size_t i = 0; i < m; ++i) {
+        for (size_t j = 0; j < n; ++j) {
+            for (size_t t = 0; t < k; ++t) {
+                res[i][j] += matrix1[i][t] * matrix2[t][j];
+                res[i][j] %= MOD;
+            }
+        }
+    }
+    return res;
 }
 
 template <class T1, class T2>
 vector<long long> matrix_multiply(vector<T1> &matrix1, pair<int, int> matrix1_size, vector<T2> &matrix2, pair<int, int> matrix2_size) {
-	int m = matrix1_size.first, k = matrix1_size.second, n = matrix2_size.second;
+    int m = matrix1_size.first, k = matrix1_size.second, n = matrix2_size.second;
 
-	vector<long long> res(m * n, 0);
+    vector<long long> res(m * n, 0);
 
-	for (size_t i = 0; i < m; ++i) {
-		for (size_t j = 0; j < n; ++j) {
-			for (size_t t = 0; t < k; ++t) {
-				res[i * n + j] += matrix1[i * k + t] * matrix2[t * n + j];
-				res[i * n + j] %= MOD;
-			}
-		}
-	}
-	return res;
+    for (size_t i = 0; i < m; ++i) {
+        for (size_t j = 0; j < n; ++j) {
+            for (size_t t = 0; t < k; ++t) {
+                res[i * n + j] += matrix1[i * k + t] * matrix2[t * n + j];
+                res[i * n + j] %= MOD;
+            }
+        }
+    }
+    return res;
 }
 
 template <class T1, class T2>
 vector<vector<long long>> matrix_binpow(vector<vector<T1>> &matrix, T2 power) {
-	if (power == 0) {  // return identity matrix
-		vector<long long> tmp_v_ll(matrix[0].size(), 0);
-		vector<vector<long long>> res(matrix.size(), tmp_v_ll);
-		for (size_t i = 0; i != matrix.size(); ++i) res[i][i] = 1;
-		return res;
-	}
+    if (power == 0) {  // return identity matrix
+        vector<long long> tmp_v_ll(matrix[0].size(), 0);
+        vector<vector<long long>> res(matrix.size(), tmp_v_ll);
+        for (size_t i = 0; i != matrix.size(); ++i) res[i][i] = 1;
+        return res;
+    }
 
-	if (power % 2 == 1) {
-		vector<vector<long long>> res = matrix_binpow(matrix, power - 1);
-		return matrix_multiply(res, matrix);
-	}
+    if (power % 2 == 1) {
+        vector<vector<long long>> res = matrix_binpow(matrix, power - 1);
+        return matrix_multiply(res, matrix);
+    }
 
-	vector<vector<long long>> res = matrix_binpow(matrix, power / 2);
-	return matrix_multiply(res, res);
+    vector<vector<long long>> res = matrix_binpow(matrix, power / 2);
+    return matrix_multiply(res, res);
 }
 
 template <class T1, class T2>
 vector<long long> matrix_binpow(vector<T1> &matrix, int matrix_size, T2 power) {
-	if (power == 0) {  // return identity matrix
-		vector<long long> res(matrix_size * matrix_size, 0);
-		for (size_t i = 0; i != matrix_size; ++i) res[i * (matrix_size + 1)] = 1;
-		return res;
-	}
+    if (power == 0) {  // return identity matrix
+        vector<long long> res(matrix_size * matrix_size, 0);
+        for (size_t i = 0; i != matrix_size; ++i) res[i * (matrix_size + 1)] = 1;
+        return res;
+    }
 
-	if (power % 2 == 1) {
-		vector<long long> res = matrix_binpow(matrix, matrix_size, power - 1);
-		return matrix_multiply(res, make_pair(matrix_size, matrix_size), matrix, make_pair(matrix_size, matrix_size));
-	}
+    if (power % 2 == 1) {
+        vector<long long> res = matrix_binpow(matrix, matrix_size, power - 1);
+        return matrix_multiply(res, make_pair(matrix_size, matrix_size), matrix, make_pair(matrix_size, matrix_size));
+    }
 
-	vector<long long> res = matrix_binpow(matrix, matrix_size, power / 2);
-	return matrix_multiply(res, make_pair(matrix_size, matrix_size), res, make_pair(matrix_size, matrix_size));
+    vector<long long> res = matrix_binpow(matrix, matrix_size, power / 2);
+    return matrix_multiply(res, make_pair(matrix_size, matrix_size), res, make_pair(matrix_size, matrix_size));
 }
 
 
@@ -270,14 +270,14 @@ void qsort(vector<int> &array, int left, int right) {
 }
 
 signed main() {
-	ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+    ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 
-	int n;
-	cin >> n;
-	vector<int> a(n);
-	for (int i = 0; i < n; ++i) cin >> a[i];
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; ++i) cin >> a[i];
 
-	qsort(a, 0, n);
+    qsort(a, 0, n);
 
-	print_array(a);
+    print_array(a);
 }

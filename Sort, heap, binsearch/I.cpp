@@ -257,9 +257,9 @@ double getTime(double x, int Vp, int Vf, double a) {
 }
 
 signed main() {
-	ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+    ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 
-	int Vp, Vf;
+    int Vp, Vf;
     double a;
     cin >> Vp >> Vf >> a;
 

@@ -253,11 +253,11 @@ vector<long long> matrix_binpow(vector<T1> &matrix, int matrix_size, T2 power) {
 #define endl '\n'
 
 signed main() {
-	ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+    ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 
     vector<pair<int, int>> stack = {{INT_MAX, INT_MAX}};
 
-	int q, type, x;
+    int q, type, x;
     cin >> q;
     for (int req = 0; req < q; ++req) {
         cin >> type;
