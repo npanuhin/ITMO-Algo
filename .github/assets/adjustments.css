@@ -1,0 +1,15 @@
+html.light .latex, html.rust .latex {
+	filter: invert(1);
+}
+
+html.navy .latex {
+	filter: contrast(75%);
+}
+
+html.coal .latex {
+	filter: contrast(70%);
+}
+
+html.ayu .latex {
+	filter: contrast(80%);
+}

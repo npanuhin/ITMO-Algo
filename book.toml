@@ -11,16 +11,20 @@ build-dir = ".github/mdbook"
 [output.html]
 default-theme = "light"
 preferred-dark-theme = "navy"
-# additional-css = []
+additional-css = [".github/assets/adjustments.css"]
 # additional-js = []
 no-section-label = true
 git-repository-url = "https://github.com/npanuhin/ITMO-Algo"
 edit-url-template = "https://github.com/npanuhin/ITMO-Algo/edit/master/{path}"
 # input-404 = ""
 cname = "algo.itmo.npanuhin.me"
+mathjax-support = true
 
 [output.html.search]
 enable = false
+
+[preprocessor.mathjax]
+command = "python mathjax.py"
 
 [preprocessor.admonish]
 command = "mdbook-admonish"

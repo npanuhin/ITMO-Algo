@@ -2,6 +2,8 @@ name: GitHub Pages
 
 on:
   push:
+    branches:    
+      - 'master'
   workflow_dispatch:
 
 jobs:
@@ -31,7 +33,8 @@ jobs:
         run: cargo install mdbook-admonish
 
       - name: Build mdBook
-        run: mdbook build
+        working-directory: .github
+        run: mdbook build ../
 
       - name: Deploy website
         uses: peaceiris/actions-gh-pages@v3
@@ -39,5 +42,6 @@ jobs:
           deploy_key: ${{ secrets.SSH_KEY }}
           publish_branch: gh-pages
           publish_dir: .github/mdbook
+          exclude_assets:
           force_orphan: true
           full_commit_message: Updated GitHub Pages
