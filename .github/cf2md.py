@@ -54,8 +54,14 @@ def md_latex(text):
     )
 
     text = regex_replace(
-        r"(<(span|p) latex=\"[^\"]*?)(\\[gl]e)([^q].*?<\/\2>)",
-        r"\1\3qslant\4",
+        r"(<(span|p) latex=\"[^\"]*?)(?:\\le(qslant)?)(.*?<\/\2>)",
+        r"\1⩽\4",
+        text
+    )
+
+    text = regex_replace(
+        r"(<(span|p) latex=\"[^\"]*?)(?:\\ge(qslant)?)(.*?<\/\2>)",
+        r"\1⩾\4",
         text
     )
 
@@ -63,7 +69,7 @@ def md_latex(text):
 
 
 def pretty(string, strip=True):
-    string = str(string).replace('\xa0', ' ').replace(' ', ' ').replace('≤', '⩽')
+    string = str(string).replace('\xa0', ' ').replace(' ', ' ').replace('≤', '⩽').replace('≥', '⩾')
     string = re.sub(r"[ \t]+\n", '\n', string, flags=re.IGNORECASE | re.UNICODE)
     if strip:
         string = string.strip()
