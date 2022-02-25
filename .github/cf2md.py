@@ -6,6 +6,9 @@ import os
 import re
 
 
+# Useful:
+# >[^>]+\_.+\_[^<]+<[^\/]
+
 TITLE = "Дерево отрезков"
 
 
