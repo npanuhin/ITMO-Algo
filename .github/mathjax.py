@@ -24,13 +24,13 @@ if __name__ == "__main__":
         chapter = section["Chapter"]
 
         chapter["content"] = re.sub(
-            r"<span latex=\"(.*?)\">.*?<\/span>",
+            r"<span tex=\"(.*?)\">.*?<\/span>",
             r"\\\\( \1 \\\\)",
             chapter["content"],
             flags=re.DOTALL | re.UNICODE
         )
         chapter["content"] = re.sub(
-            r"<p latex=\"(.*?)\">.*?<\/p>",
+            r"<p tex=\"(.*?)\">.*?<\/p>",
             r"\\\\[ \1 \\\\]",
             chapter["content"],
             flags=re.DOTALL | re.UNICODE

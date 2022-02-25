@@ -6,7 +6,7 @@ import os
 import re
 
 
-MARKDOWN_TEMPLATE = "template.md"
+TITLE = "Дерево отрезков"
 
 
 def regex_replace(pattern, replace, text, flags=re.DOTALL | re.UNICODE):
@@ -25,43 +25,55 @@ def regex_replace(pattern, replace, text, flags=re.DOTALL | re.UNICODE):
 def md_latex(text):
     text = regex_replace(
         r"\${6}(.+?)\${6}",
-        r'<p latex="\1"><pre></pre></p>',
+        r'<p tex="\1"><pre>TODO</pre></p>',
         text
     )
 
     text = regex_replace(
         r"\${3}(.+?)\${3}",
-        r'<span latex="\1"></span>',
+        r'<span tex="\1">TODO</span>',
         text
     )
 
     text = regex_replace(
-        r"(<(span|p) latex=\"[^\"]*?)\\\_(.*?<\/\2>)",
+        r"(<(span|p) tex=\"[^\"]*?)\\\_(.*?<\/\2>)",
         r"\1_\3",
         text
     )
 
     text = regex_replace(
-        r"(<(span|p) latex=\"[^\"]*?\d+\\)\,(\d+.*?<\/\2>)",
+        r"(<(span|p) tex=\"[^\"]*?\d+\\)\,(\d+.*?<\/\2>)",
         r"\1 \3",
         text
     )
 
     text = regex_replace(
-        r"(<(span|p) latex=\"[^\"]*?)\\dots(.*?<\/\2>)",
+        r"(<(span|p) tex=\"[^\"]*?)\\dots(.*?<\/\2>)",
         r"\1…\3",
         text
     )
 
     text = regex_replace(
-        r"(<(span|p) latex=\"[^\"]*?)(?:\\le(qslant)?)(.*?<\/\2>)",
-        r"\1⩽\4",
+        r"(<(span|p) tex=\"[^\"]*?)(?:\\le(?:qslant)?)(.*?<\/\2>)",
+        r"\1⩽\3",
         text
     )
 
     text = regex_replace(
-        r"(<(span|p) latex=\"[^\"]*?)(?:\\ge(qslant)?)(.*?<\/\2>)",
-        r"\1⩾\4",
+        r"(<(span|p) tex=\"[^\"]*?)(?:\\ge(?:qslant)?)(.*?<\/\2>)",
+        r"\1⩾\3",
+        text
+    )
+
+    text = regex_replace(
+        r"(<(span|p) tex=\"[^\"]*?)(?:\\in)(.*?<\/\2>)",
+        r"\1∈\3",
+        text
+    )
+
+    text = regex_replace(
+        r"(<(span|p) tex=\"[^\"]*?)(?:\\cdot)(.*?<\/\2>)",
+        r"\1·\3",
         text
     )
 
@@ -185,9 +197,10 @@ def main(url):
 
     with open("cf2md/README.md", 'w', encoding="utf-8") as file:
         for line in (
-            "<!-- {{#title ​Сортировки, куча, бинпоиск}} -->",
+            "<!-- {{#title ​{}}} -->".format(TITLE),
             "",
-            '<h1 align="center">Сортировки, куча, бинпоиск</h1>',
+            '<h1 align="center">{}</h1>'.format(TITLE),
+            "",
             ""
         ):
             print(line, file=file)
@@ -244,4 +257,4 @@ def main(url):
 
 
 if __name__ == "__main__":
-    main("https://codeforces.com/group/dAhOSPf3oD/contest/349149/problems?locale=ru")
+    main("https://codeforces.com/group/dAhOSPf3oD/contest/370734/problems?locale=ru")

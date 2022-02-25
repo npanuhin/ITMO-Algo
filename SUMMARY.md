@@ -6,3 +6,4 @@
 - [Сортировки, куча, бинпоиск](Sort,%20heap,%20binsearch/README.md)
 - [Стеки, очереди, СНМ](Stacks,%20queues,%20DSU/README.md)
 - [Динамическое программирование](Dynamic%20programming/README.md)
+- [Дерево отрезков](Segment%20tree/README.md)
