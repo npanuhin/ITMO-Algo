@@ -8,6 +8,7 @@ import re
 
 # Useful:
 # >[^>]+\_.+\_[^<]+<[^\/]
+# [^\\]\|
 
 TITLE = "Дерево отрезков"
 
@@ -27,56 +28,68 @@ def regex_replace(pattern, replace, text, flags=re.DOTALL | re.UNICODE):
 
 def md_latex(text):
     text = regex_replace(
+        r"((?:\${3}){1,2}[^\$]*?)\\\_([^\$]*?(?:\${3}){1,2})",
+        r"\1_\2",
+        text
+    )
+
+    text = regex_replace(
+        r"((?:\${3}){1,2}[^\$]*?\d+\\),(\d+[^\$]*?(?:\${3}){1,2})",
+        r"\1 \2",
+        text
+    )
+
+    text = regex_replace(
+        r"((?:\${3}){1,2}[^\$]*?)\s*\\dots\s*([^\$]*?(?:\${3}){1,2})",
+        r"\1 … \2",
+        text
+    )
+
+    text = regex_replace(
+        r"((?:\${3}){1,2}[^\$]*?)\s*\\le(?:qslant)?\s*([^\$]*?(?:\${3}){1,2})",
+        r"\1 ⩽ \2",
+        text
+    )
+
+    text = regex_replace(
+        r"((?:\${3}){1,2}[^\$]*?)\s*\\ge(?:qslant)?\s*([^\$]*?(?:\${3}){1,2})",
+        r"\1 ⩾ \2",
+        text
+    )
+
+    text = regex_replace(
+        r"((?:\${3}){1,2}[^\$]*?)\s*([\<\>])\s*([^\$]*?(?:\${3}){1,2})",
+        r"\1 \2 \3",
+        text
+    )
+
+    text = regex_replace(
+        r"((?:\${3}){1,2}[^\$]*?)\s*\\in\s*([^\$]*?(?:\${3}){1,2})",
+        r"\1 ∈ \2",
+        text
+    )
+
+    text = regex_replace(
+        r"((?:\${3}){1,2}[^\$]*?\d{2,})(\d{3}[^\$]*?(?:\${3}){1,2})",
+        r"\1\\ \2",
+        text
+    )
+
+    text = regex_replace(
+        r"((?:\${3}){1,2}[^\$]*?)\s*\\cdot\s*([^\$]*?(?:\${3}){1,2})",
+        r"\1·\2",
+        text
+    )
+
+    text = regex_replace(
         r"\${6}(.+?)\${6}",
-        r'<p tex="\1"><pre>TODO</pre></p>',
+        r'<p tex="\1"><pre>\1</pre></p>',
         text
     )
 
     text = regex_replace(
         r"\${3}(.+?)\${3}",
-        r'<span tex="\1">TODO</span>',
-        text
-    )
-
-    text = regex_replace(
-        r"(<(span|p) tex=\"[^\"]*?)\\\_(.*?<\/\2>)",
-        r"\1_\3",
-        text
-    )
-
-    text = regex_replace(
-        r"(<(span|p) tex=\"[^\"]*?\d+\\)\,(\d+.*?<\/\2>)",
-        r"\1 \3",
-        text
-    )
-
-    text = regex_replace(
-        r"(<(span|p) tex=\"[^\"]*?)\\dots(.*?<\/\2>)",
-        r"\1…\3",
-        text
-    )
-
-    text = regex_replace(
-        r"(<(span|p) tex=\"[^\"]*?)(?:\\le(?:qslant)?)(.*?<\/\2>)",
-        r"\1⩽\3",
-        text
-    )
-
-    text = regex_replace(
-        r"(<(span|p) tex=\"[^\"]*?)(?:\\ge(?:qslant)?)(.*?<\/\2>)",
-        r"\1⩾\3",
-        text
-    )
-
-    text = regex_replace(
-        r"(<(span|p) tex=\"[^\"]*?)(?:\\in)(.*?<\/\2>)",
-        r"\1∈\3",
-        text
-    )
-
-    text = regex_replace(
-        r"(<(span|p) tex=\"[^\"]*?)(?:\\cdot)(.*?<\/\2>)",
-        r"\1·\3",
+        r'<span tex="\1">\1</span>',
         text
     )
 
