@@ -11,7 +11,7 @@ build-dir = ".github/mdbook"
 [output.html]
 default-theme = "light"
 preferred-dark-theme = "navy"
-additional-css = ['.github/assets/mdbook-admonish.css']
+additional-css = ['.github/assets/adjustments.css', '.github/assets/mdbook-admonish.css']
 # additional-js = []
 no-section-label = true
 git-repository-url = "https://github.com/npanuhin/ITMO-Algo"

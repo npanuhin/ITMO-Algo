@@ -318,7 +318,9 @@ ACDEXGIH
 
 Продавец аквариумов для кошек хочет объехать <span tex="n">_n_</span> городов, посетив каждый из них ровно один раз. Помогите ему найти кратчайший путь.
 
-<div align="center"><img src="assets/H.cat.svg"></div>
+
+<div class="light_theme" align="center"><img src="assets/H.cat.svg#gh-light-mode-only"></div>
+<div class="dark_theme" align="center"><img src="assets/H.cat.light.svg#gh-dark-mode-only"></div>
 
 ### Входные данные
 Первая строка входного файла содержит натуральное число <span tex="n">_n_</span> <span tex="(1 ⩽ n ⩽ 13)">(1 ⩽ _n_ ⩽ 13)</span> — количество городов. Следующие <span tex="n">_n_</span> строк содержат по <span tex="n">_n_</span> чисел — длины путей между городами.

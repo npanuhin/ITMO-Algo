@@ -1,0 +1,7 @@
+html:not(.navy):not(.coal):not(.ayu) .dark_theme {
+	display: none;
+}
+
+html.navy .light_theme, html.coal .light_theme, html.ayu .light_theme {
+	display: none;
+}
