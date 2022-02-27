@@ -255,46 +255,39 @@ vector<long long> matrix_binpow(vector<T1> &matrix, int matrix_size, T2 power) {
 #define endl '\n'
 
 
-pair<int, int> combine(pair<int, int> a, pair<int, int> b) {
-    if (a.first < b.first) return a;
-    if (a.first > b.first) return b;
-    return make_pair(a.first, a.second + b.second);
-}
- 
-void build(vector<pair<int, int>> &tree, vector<int> &a, int v, int tl, int tr) {
+void build(vector<int> &tree, vector<int> &src, int v, int tl, int tr) {
     if (tl == tr) {
-        tree[v] = make_pair(a[tl], 1);
+        tree[v] = (int)(src[tl] == 1);
     } else {
         int tm = (tl + tr) / 2;
-        build(tree, a, v * 2, tl, tm);
-        build(tree, a, v * 2 + 1, tm + 1, tr);
-        tree[v] = combine(tree[v * 2], tree[v * 2 + 1]);
+        build(tree, src, v * 2, tl, tm);
+        build(tree, src, v * 2 + 1, tm + 1, tr);
+        tree[v] = tree[v * 2] + tree[v * 2 + 1];
     }
 }
- 
-pair<int, int> get_min(vector<pair<int, int>> &tree, int v, int tl, int tr, int l, int r) {
-    if (l > r) return make_pair(INT_MAX, 0);
 
-    if (l == tl && r == tr) return tree[v];
-
+int get_kth(vector<int> &tree, int v, int tl, int tr, int k) {
+    if (tl == tr) return tl;
+    
     int tm = (tl + tr) / 2;
-    return combine(
-        get_min(tree, v * 2, tl, tm, l, min(r, tm)),
-        get_min(tree, v * 2 + 1, tm + 1, tr, max(l, tm + 1), r)
-    );
+    if (k <= tree[v * 2]) {
+        return get_kth(tree, v * 2, tl, tm, k);
+    } else {
+        return get_kth(tree, v * 2 + 1, tm + 1, tr, k - tree[v * 2]);
+    }
 }
- 
-void update(vector<pair<int, int>> &tree, int v, int tl, int tr, int pos, int new_val) {
+
+void update(vector<int> &tree, int v, int tl, int tr, int pos) {
     if (tl == tr) {
-        tree[v] = make_pair(new_val, 1);
+        tree[v] = (int)!(bool)tree[v];
     } else {
         int tm = (tl + tr) / 2;
         if (pos <= tm) {
-            update(tree, v * 2, tl, tm, pos, new_val);
+            update(tree, v * 2, tl, tm, pos);
         } else {
-            update(tree, v * 2 + 1, tm + 1, tr, pos, new_val);
+            update(tree, v * 2 + 1, tm + 1, tr, pos);
         }
-        tree[v] = combine(tree[v * 2], tree[v * 2 + 1]);
+        tree[v] = tree[v * 2] + tree[v * 2 + 1];
     }
 }
 
@@ -306,21 +299,19 @@ signed main() {
     vector<int> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];
 
-    vector<pair<int, int>> tree(n * 4);
+    vector<int> tree(n * 4);
     build(tree, a, 1, 0, n - 1);
 
     char req_type;
-    int i, v, l, r;
-    pair<int, int> result;
+    int i, k;
     for (int req = 0; req < m; ++req) {
         cin >> req_type;
         if (req_type == '1') {
-            cin >> i >> v;
-            update(tree, 1, 0, n - 1, i, v);
+            cin >> i;
+            update(tree, 1, 0, n - 1, i);
         } else {
-            cin >> l >> r;
-            result = get_min(tree, 1, 0, n - 1, l, r - 1);
-            cout << result.first << ' ' << result.second << endl;
+            cin >> k;
+            cout << get_kth(tree, 1, 0, n - 1, k + 1) << endl;
         }
     }
 }
