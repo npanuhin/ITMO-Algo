@@ -5,3 +5,7 @@ html:not(.navy):not(.coal):not(.ayu) .dark_theme {
 html.navy .light_theme, html.coal .light_theme, html.ayu .light_theme {
 	display: none;
 }
+
+main p, main ol li, main ul li {
+	text-align: justify;
+}

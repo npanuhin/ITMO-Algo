@@ -179,7 +179,7 @@
 Первая строка содержит два числа <span tex="n">n</span> и <span tex="m">m</span> <span tex="(1 ⩽ n, m ⩽ 100\ 000)">(1 ⩽ n, m ⩽ 100'000)</span> — размер массива и число операций. Следующая строка содержит <span tex="n">n</span> чисел <span tex="a_i">a_i</span> — начальное состояние массива <span tex="(0 ⩽ a_i ⩽ 10^9)">(0 ⩽ a_i ⩽ 10^9)</span>. Далее следует описание операций. Описание каждой операции имеет следущий вид:
 
 - 1 <span tex="i">i</span> <span tex="v">v</span> — изменить элемент с индексом <span tex="i">i</span> на <span tex="v">v</span> <span tex="(0 ⩽ i < n, 0 ⩽ v ⩽ 10^9)">(0 ⩽ i < n, 0 ⩽ v ⩽ 10^9)</span>.
-- 2 <span tex="x">x</span> <span tex="l">l</span> — найти минимальный индекс <span tex="j">j</span>, для <span tex="j ⩾ l">j ⩾ l</span> и <span tex="a[j] ⩾ x">a\[j\] ⩾ x</span> <span tex="(0 ⩽ x ⩽ 10^9, 0 ⩽ l < n)">(0 ⩽ x ⩽ 10^9, 0 ⩽ l < n)</span>. Если такого элемента нет, выведите <span tex="-1">-1</span>. Индексы начинаются с 0.
+- 2 <span tex="x">x</span> <span tex="l">l</span> — найти минимальный индекс <span tex="j">j</span>, для <span tex="j ⩾ l">j ⩾ l</span> и <span tex="a[j] ⩾ x">a\[j\] ⩾ x</span> <span tex="(0 ⩽ x ⩽ 10^9,">(0 ⩽ x ⩽ 10^9,</span> <span tex="0 ⩽ l < n)">0 ⩽ l < n)</span>. Если такого элемента нет, выведите <span tex="-1">-1</span>. Индексы начинаются с 0.
 
 ### Выходные данные
 Для каждой операции второго типа выведите ответ на запрос.
@@ -223,7 +223,7 @@
 ### Входные данные
 Первая строка содержит два числа <span tex="n">n</span> и <span tex="m">m</span> <span tex="(1 ⩽ n, m ⩽ 100\ 000)">(1 ⩽ n, m ⩽ 100'000)</span> — размер массива и число операций. Далее следует описание операций. Описание каждой операции имеет следущий вид:
 
-- 1 <span tex="l">l</span> <span tex="r">r</span> <span tex="v">v</span> — прибавить значение <span tex="v">v</span> к отрезку от <span tex="l">l</span> до <span tex="r - 1">r - 1</span> <span tex="(0 ⩽ l < r ⩽ n, 0 ⩽ v ⩽ 10^9)">(0 ⩽ l < r ⩽ n, 0 ⩽ v ⩽ 10^9)</span>.
+- 1 <span tex="l">l</span> <span tex="r">r</span> <span tex="v">v</span> — прибавить значение <span tex="v">v</span> к отрезку от <span tex="l">l</span> до <span tex="r - 1">r - 1</span> <span tex="(0 ⩽ l < r ⩽ n,">(0 ⩽ l < r ⩽ n,</span> <span tex="0 ⩽ v ⩽ 10^9)">0 ⩽ v ⩽ 10^9)</span>.
 - 2 <span tex="l">l</span> <span tex="r">r</span> — узнать минимум на отрезке от <span tex="l">l</span> до <span tex="r - 1">r - 1</span> <span tex="(0 ⩽ l < r ⩽ n)">(0 ⩽ l < r ⩽ n)</span>.
 
 ### Выходные данные
