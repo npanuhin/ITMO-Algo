@@ -30,7 +30,7 @@
 1 1 2 2 3 3 4 6 7 8 
 ```
 
-### [Решение](A.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/A.cpp)
 
 
 ## B. Сортировка подсчетом
@@ -60,7 +60,7 @@
 2 3 4 5 7 
 ```
 
-### [Решение](B.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/B.cpp)
 
 
 ## C. Количество инверсий
@@ -99,7 +99,7 @@
 6
 ```
 
-### [Решение](C.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/C.cpp)
 
 
 ## D. Хипуй!
@@ -143,7 +143,7 @@
 50
 ```
 
-### [Решение](D.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/D.cpp)
 
 
 ## E. Быстрый поиск в массиве
@@ -182,7 +182,7 @@
 5 2 2 0 
 ```
 
-### [Решение](E.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/E.cpp)
 
 
 ## F. Приближенный двоичный поиск
@@ -217,7 +217,7 @@
 5
 ```
 
-### [Решение](F.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/F.cpp)
 
 
 ## G. Очень Легкая Задача
@@ -254,7 +254,7 @@
 4
 ```
 
-### [Решение](G.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/G.cpp)
 
 
 ## H. Квадратный корень и квадратный квадрат
@@ -291,7 +291,7 @@
 4.0
 ```
 
-### [Решение](H.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/H.cpp)
 
 
 ## I. Поляна дров
@@ -328,7 +328,7 @@
 0.783310604
 ```
 
-### [Решение](I.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/I.cpp)
 
 
 ## J. K-best
@@ -371,7 +371,7 @@
 2
 ```
 
-### [Решение](J.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/J.cpp)
 
 
 ## K. Разделение массива
@@ -399,7 +399,7 @@
 12
 ```
 
-### [Решение](K.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/K.cpp)
 
 
 ## L. Таблица умножения
@@ -436,7 +436,7 @@
 10
 ```
 
-### [Решение](L.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/L.cpp)
 
 
 ## M. K-я сумма
@@ -465,4 +465,4 @@
 9
 ```
 
-### [Решение](M.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/M.cpp)

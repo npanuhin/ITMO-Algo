@@ -38,7 +38,7 @@
 14
 ```
 
-### [Решение](A.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/A.cpp)
 
 
 ## B. Число минимумов на отрезке
@@ -76,7 +76,7 @@
 2 3
 ```
 
-### [Решение](B.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/B.cpp)
 
 
 ## C. Отрезок с максимальной суммой
@@ -123,7 +123,7 @@
 3
 ```
 
-### [Решение](C.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/C.cpp)
 
 
 ## D. K-я единица
@@ -165,7 +165,7 @@
 1
 ```
 
-### [Решение](D.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/D.cpp)
 
 
 ## E. Первый элемент не меньше X - 2
@@ -207,7 +207,7 @@
 3
 ```
 
-### [Решение](E.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/E.cpp)
 
 
 ## F. Прибавление и минимум
@@ -249,7 +249,7 @@
 0
 ```
 
-### [Решение](F.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/F.cpp)
 
 
 ## G. Присваивание и минимум
@@ -291,7 +291,7 @@
 0
 ```
 
-### [Решение](G.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/G.cpp)
 
 
 ## H. Присваивание, прибавление и сумма
@@ -335,7 +335,7 @@
 4
 ```
 
-### [Решение](H.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/H.cpp)
 
 
 ## I. Криптография
@@ -388,7 +388,7 @@
 1 2
 ```
 
-### [Решение](I.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/I.cpp)
 
 
 ## J. Землетрясения
@@ -432,7 +432,7 @@
 3
 ```
 
-### [Решение](J.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/J.cpp)
 
 
 ## K. Художник
@@ -474,7 +474,7 @@ W 0 10
 0 0
 ```
 
-### [Решение](K.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/K.cpp)
 
 
 ## L. Окна
@@ -516,7 +516,7 @@ W 0 10
 0 1
 ```
 
-### [Решение](L.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/L.cpp)
 
 
 ## M. Звезды
@@ -563,7 +563,7 @@ W 0 10
 2
 ```
 
-### [Решение](M.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/M.cpp)
 
 
 ## <span tex="K">*K*</span>-я порядковая статистика на отрезке
@@ -634,4 +634,4 @@ TODO
 15
 ```
 
-### [Решение](N.cpp)
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/N.cpp)
