@@ -1,0 +1,72 @@
+.nav-wide-wrapper, .nav-wrapper {
+	display: none;
+}
+
+.content {
+	padding-left: 35px;
+}
+
+#toc {
+	position: fixed;
+	top: 60px;
+	z-index: 9999;
+
+	overflow: hidden;
+	overflow-y: auto;
+
+	height: calc(100vh - 60px);
+	direction: rtl;
+
+	-ms-overflow-style: none;  /* IE and Edge */
+  	scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#toc::-webkit-scrollbar {
+	display: none;
+}
+
+#toc ul {
+	margin: 0;
+	padding: 0;
+	direction: ltr;
+	overflow: hidden;
+	list-style-type: none;
+}
+
+#toc ul li a {
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	margin: 8px 0;
+	width: 32px;
+	padding: 5px 5px 5px 5px;
+
+	border: 1px solid var(--table-border-color);
+	border-left: none;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+
+	text-align: center;
+
+	font-size: 1.6rem;
+	color: var(--icons);
+
+	list-style-type: none;
+	text-decoration: none;
+	cursor: pointer;
+
+	transition: padding-left 0.07s ease-in-out, width 0.07s ease-in-out,
+				color 0.07s ease-in-out, border-color 0.07s ease-in-out;
+}
+
+#toc ul li a:hover {
+	width: 40px;
+	padding-left: 15px;
+	color: var(--icons-hover);
+	border-color: var(--icons);
+}
+
+.theme-popup {
+	left: 50px;
+}

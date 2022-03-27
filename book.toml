@@ -11,8 +11,8 @@ build-dir = ".github/mdbook"
 [output.html]
 default-theme = "light"
 preferred-dark-theme = "navy"
-additional-css = ['.github/assets/adjustments.css', '.github/assets/mdbook-admonish.css']
-# additional-js = []
+additional-css = ['.github/assets/mdbook-admonish.css', '.github/assets/adjustments.css', '.github/assets/problem_toc.css']
+additional-js = ['.github/assets/problem_toc.js']
 no-section-label = true
 git-repository-url = "https://github.com/npanuhin/ITMO-Algo"
 edit-url-template = "https://github.com/npanuhin/ITMO-Algo/edit/master/{path}"
@@ -25,6 +25,9 @@ enable = false
 
 [preprocessor.mathjax]
 command = "python mathjax.py"
+
+[preprocessor.problem_toc]
+command = "python problem_toc.py"
 
 [preprocessor.admonish]
 command = "mdbook-admonish"
