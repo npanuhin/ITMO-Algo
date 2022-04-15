@@ -4,9 +4,9 @@
 <h3 align="center" style="font-size: 32px; margin-top: 21.44px;">Лабораторные работы по курсу АиСД, ИТМО</h3>
 
 <blockquote hidden>
-	<p>
-		На <a href="https://algo.itmo.npanuhin.me/">сайте</a> работает LaTex, удобнее читать там
-	</p>
+    <p>
+        На <a href="https://algo.itmo.npanuhin.me/">сайте</a> работает LaTex, удобнее читать там
+    </p>
 </blockquote>
 
 

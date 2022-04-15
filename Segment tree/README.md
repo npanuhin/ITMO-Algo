@@ -592,11 +592,11 @@ ai = (a(i-1)·l + m) mod 10^9
 
 <p tex="
 \begin{align*}
-	x_g &= ((i_{g-1} · l_x + m_x) \bmod N) + 1,                      & 2 ⩽ g ⩽ G  \\\\
-	y_g &= ((j_{g-1} · l_y + m_y) \bmod N) + 1,                      & 2 ⩽ g ⩽ G  \\\\
-	i_g &= \min(x_g, y_g),                                           & 1 ⩽ g ⩽ G  \\\\
-	j_g &= \max(x_g, y_g),                                           & 1 ⩽ g ⩽ G  \\\\
-	k_g &= (((k_{g-1} - 1) · l_k + m_k) \bmod (j_g - i_g + 1)) + 1   & 2 ⩽ g ⩽ G
+    x_g &= ((i_{g-1} · l_x + m_x) \bmod N) + 1,                      & 2 ⩽ g ⩽ G  \\\\
+    y_g &= ((j_{g-1} · l_y + m_y) \bmod N) + 1,                      & 2 ⩽ g ⩽ G  \\\\
+    i_g &= \min(x_g, y_g),                                           & 1 ⩽ g ⩽ G  \\\\
+    j_g &= \max(x_g, y_g),                                           & 1 ⩽ g ⩽ G  \\\\
+    k_g &= (((k_{g-1} - 1) · l_k + m_k) \bmod (j_g - i_g + 1)) + 1   & 2 ⩽ g ⩽ G
 \end{align*}
 ">
 <pre>
