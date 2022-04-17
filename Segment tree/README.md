@@ -516,7 +516,7 @@ W 0 10
 0 1
 ```
 
-<!-- ### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/L.cpp) -->
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/L.cpp)
 
 
 ## M. Звезды
@@ -563,7 +563,7 @@ W 0 10
 2
 ```
 
-<!-- ### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/M.cpp) -->
+### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/M.cpp)
 
 
 ## <span tex="K">*K*</span>-я порядковая статистика на отрезке

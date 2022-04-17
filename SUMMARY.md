@@ -7,3 +7,4 @@
 - [Стеки, очереди, СНМ](Stacks,%20queues,%20DSU/README.md)
 - [Динамическое программирование](Dynamic%20programming/README.md)
 - [Дерево отрезков](Segment%20tree/README.md)
+- [Дерево поиска](Search%20tree/README.md)
