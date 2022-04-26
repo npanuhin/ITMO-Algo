@@ -24,4 +24,6 @@ if (toc !== null) {
             history.replaceState({}, '', url);
         });
     }
+
+    toc.style.display = "block";
 }

@@ -17,6 +17,8 @@
 	height: calc(100vh - 60px);
 	direction: rtl;
 
+	display: none;
+
 	-ms-overflow-style: none;  /* IE and Edge */
   	scrollbar-width: none;  /* Firefox */
 }
