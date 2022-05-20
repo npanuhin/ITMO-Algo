@@ -1,5 +1,5 @@
 <!-- {#title ​Дерево отрезков} -->
-<!-- toc[A,B,C,D,E,F,G,H,I,G,K,L,M,N] -->
+<!-- toc[A,B,C,D,E,F,G,H,I,J,K,L,M,N] -->
 
 <h1 align="center">Дерево отрезков</h1>
 
