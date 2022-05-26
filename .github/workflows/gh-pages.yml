@@ -36,11 +36,13 @@ jobs:
         run: |
           mkdir -p .github/mdbook
           mdbook-admonish install --css-dir .github/assets .
-          git restore book.toml
 
       - name: Build mdBook
         working-directory: .github
         run: mdbook build ../
+
+      - name: Cleanup
+        run: git restore book.toml
 
       - name: Deploy website
         uses: peaceiris/actions-gh-pages@v3
