@@ -5,7 +5,7 @@
 //
 //                                               Hi there!
 //        Here you will find a number of data structures and useful tools for olympic programming
-//  If you're looking for the code to solve a specific problem, it starts down below, at about line 247
+//  If you're looking for the code to solve a specific problem, it starts down below, at about line 246
 
 
 #pragma GCC optimize("Ofast")
@@ -47,21 +47,20 @@ const int MOD = 1e9 + 7;
 
 // ========================================
 
+template <class T>
+T _read(){T x;cin>>x;return x;}
+
 #define all(_x) (_x).begin(), (_x).end()
 #define rall(_x) (_x).rbegin(), (_x).rend()
 #define sortv(_x) sort((_x).begin(), (_x).end())
 #define get(_type, _x) _type _x; cin >> (_x);
 #define print(_x) cout << (_x) << endl;
+#define read(_type) _read <_type> ()
 #define maxind(_v) (max_element((_v).begin(), (_v).end()) - (_v).begin())
 #define minind(_v) (min_element((_v).begin(), (_v).end()) - (_v).begin())
 #define print_float fixed << setprecision(20)
 #define print_array(_v) for(int _i=0;_i<(_v).size();++_i){cout<<(_v)[_i]<<' ';}cout<<endl;
 #define rand_init srand(time(NULL))
-
-template <class T>
-T read(){T x;cin>>x;return x;}
-template <class T>
-vector<T> vector_init(int n){vector<T> x;x.reserve(n);return x;}
 
 template <class T>
 long long sum(vector<T> &a){long long x=0;for(int _i=0;_i<a.size();++_i)x+=a[_i];return x;}
@@ -256,77 +255,102 @@ vector<long long> matrix_binpow(vector<T1> &matrix, int matrix_size, T2 power) {
 // #define int long long
 #define endl '\n'
 
-void build(vector<vector<int>> &graph, vector<int> &depth, vector<vector<int>> &dp, int steps, int v = 0, int p = 0) {
-    if (p != v) depth[v] = depth[p] + 1;
+struct Node {
+    int x, y = rand() * rand(), size = 1;
+    bool reversed = false;
+    Node *l = nullptr, *r = nullptr;
 
-    dp[v][0] = p;
-    for (int i = 1; i <= steps; ++i) dp[v][i] = dp[dp[v][i - 1]][i - 1];
+    Node(int value) {
+        this->x = value;
+    }
+};
 
-    for (int next : graph[v]) {
-        if (next != p) build(graph, depth, dp, steps, next, v);
+void push(Node *t) {
+    if (t != nullptr && t->reversed) {
+        t->reversed = false;
+
+        Node* tmp = t->r;
+        t->r = t->l;
+        t->l = tmp;
+
+        if (t->l != nullptr) t->l->reversed ^= true;
+        if (t->r != nullptr) t->r->reversed ^= true;
+    }
+} 
+
+int get_size(Node *&t) {
+    return t == nullptr ? 0 : t->size;
+}
+
+void update_size(Node *&t) {
+    if (t != nullptr) {
+        t->size = 1 + get_size(t->l) + get_size(t->r);
     }
 }
 
-int lca(vector<int> &depth, vector<vector<int>> &dp, int steps, int u, int v) {
-    if (depth[v] > depth[u]) swap(v, u);
-
-    for (int i = steps; i >= 0; --i) {
-        if (depth[dp[u][i]] >= depth[v]) u = dp[u][i];
+Node* merge(Node *t1, Node *t2) {
+    if (t1 == nullptr || t2 == nullptr) return t1 ? t1 : t2;
+    push(t1);
+    push(t2);
+    
+    if (t1->y > t2->y) {
+        t1->r = merge(t1->r, t2);
+        update_size(t1);
+        return t1;
     }
 
-    if (v == u) return v;
-
-    for (int i = steps; i >= 0; --i) {
-        if (dp[v][i] != dp[u][i]) {
-            v = dp[v][i];
-            u = dp[u][i];
-        }
-    }
-
-    return dp[v][0];
+    t2->l = merge(t1, t2->l);
+    update_size(t2);
+    return t2;
 }
 
-int count(vector<vector<int>> &graph, vector<vector<int>> &dp, vector<int> &a, vector<int> &b, int &res, int v = 0) {
-    int r = a[v], tmp;
-    for (int next : graph[v]) {
-        if (next != dp[v][0]) {
-            tmp = count(graph, dp, a, b, res, next);
-            if (tmp == 0) ++res;
-            r += tmp;
-        }
+void split(Node *t, int x, Node *&t1, Node *&t2) {
+    if (t == nullptr) {
+        t1 = t2 = nullptr;
+        return;
     }
-    return r - 2 * b[v];
+    push(t);
+
+    if (get_size(t->l) < x) {
+        split(t->r, x - get_size(t->l) - 1, t->r, t2);
+        t1 = t;
+    } else {
+        split(t->l, x, t1, t->l);
+        t2 = t;
+    }
+    update_size(t);
+}
+
+Node* reverse(Node *t, int l, int r) {
+    Node *left, *middle, *right, *tmp;
+    split(t, l, left, tmp);
+    split(tmp, r + 1 - l, middle, right);
+    middle->reversed = true;
+    return merge(merge(left, middle), right);
+}
+
+void print_tree(Node *t) {
+    if (t == nullptr) return;
+    push(t);
+    print_tree(t->l);
+    cout << t->x << ' ';
+    print_tree(t->r);
 }
 
 signed main() {
     ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-    
-    int n, m, u, v;
-    cin >> n;
 
-    vector<vector<int>> graph(n);
-    for (int i = 0; i < n - 1; ++i) {
-        cin >> u >> v; --u; --v;
-        graph[u].push_back(v);
-        graph[v].push_back(u);
+    int n, m, l, r;
+    cin >> n >> m;
+
+    Node* t = nullptr;
+    for (int i = 1; i <= n; ++i) t = merge(t, new Node(i));
+
+    for (int req = 0; req < m; ++req) {
+        cin >> l >> r;
+        reverse(t, l - 1, r - 1);
     }
 
-    vector<int> depth(n);
-    vector<vector<int>> dp(n);
-    int steps = 0;
-    while ((1 << steps) <= n) ++steps;
-    for (int i = 0; i < n; ++i) dp[i].resize(steps + 1);
-    
-    build(graph, depth, dp, steps);
-    
-    cin >> m;
-    vector<int> a(n), b(n);
-    for (int i = 0; i < m; ++i) {
-        cin >> u >> v; --u; --v;
-        ++a[u]; ++a[v];
-        ++b[lca(depth, dp, steps, u, v)];
-    }
-    int res = 0;
-    count(graph, dp, a, b, res, 0);
-    cout << res << endl;
+    print_tree(t);
+    cout << endl;
 }

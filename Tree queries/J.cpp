@@ -256,77 +256,61 @@ vector<long long> matrix_binpow(vector<T1> &matrix, int matrix_size, T2 power) {
 // #define int long long
 #define endl '\n'
 
-void build(vector<vector<int>> &graph, vector<int> &depth, vector<vector<int>> &dp, int steps, int v = 0, int p = 0) {
-    if (p != v) depth[v] = depth[p] + 1;
-
-    dp[v][0] = p;
-    for (int i = 1; i <= steps; ++i) dp[v][i] = dp[dp[v][i - 1]][i - 1];
-
-    for (int next : graph[v]) {
-        if (next != p) build(graph, depth, dp, steps, next, v);
+void count(vector<vector<int>> &graph, vector<int> &res, vector<int> &w, int u, int pred) {
+    w[u] = 1;
+    for (int v : graph[u]) {
+        if (v == pred || res[v] != -1) continue;
+        count(graph, res, w, v, u);
+        w[u] += w[v];
     }
 }
 
-int lca(vector<int> &depth, vector<vector<int>> &dp, int steps, int u, int v) {
-    if (depth[v] > depth[u]) swap(v, u);
-
-    for (int i = steps; i >= 0; --i) {
-        if (depth[dp[u][i]] >= depth[v]) u = dp[u][i];
-    }
-
-    if (v == u) return v;
-
-    for (int i = steps; i >= 0; --i) {
-        if (dp[v][i] != dp[u][i]) {
-            v = dp[v][i];
-            u = dp[u][i];
+int find_centroid(vector<vector<int>> &graph, vector<int> &res, vector<int> &w, int u, int pred, int s) {
+    bool flag = true;
+    while (flag) {
+        flag = false;
+        for (int v : graph[u]) {
+            if (v == pred || res[v] != -1) continue;
+            if (w[v] > (s + 1) / 2) {
+                flag = true;
+                pred = u;
+                u = v;
+                break;
+            }
         }
     }
-
-    return dp[v][0];
+    return u;
 }
 
-int count(vector<vector<int>> &graph, vector<vector<int>> &dp, vector<int> &a, vector<int> &b, int &res, int v = 0) {
-    int r = a[v], tmp;
-    for (int next : graph[v]) {
-        if (next != dp[v][0]) {
-            tmp = count(graph, dp, a, b, res, next);
-            if (tmp == 0) ++res;
-            r += tmp;
-        }
+void decompose(vector<vector<int>> &graph, vector<int> &res, vector<int> &w, int u = 1, int pred = 0) {
+    count(graph, res, w, u, pred);
+    u = find_centroid(graph, res, w, u, pred, w[u]);
+    res[u] = pred;
+    for (int v : graph[u]) {
+        if (res[v] != -1) continue;
+        decompose(graph, res, w, v, u);
     }
-    return r - 2 * b[v];
 }
 
 signed main() {
     ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-    
-    int n, m, u, v;
+
+    int n, u, v;
     cin >> n;
+    ++n;
 
     vector<vector<int>> graph(n);
-    for (int i = 0; i < n - 1; ++i) {
-        cin >> u >> v; --u; --v;
+    vector<int> res(n, -1), w(n);
+
+    for (int i = 1; i < n - 1; ++i) {
+        cin >> u >> v;
         graph[u].push_back(v);
         graph[v].push_back(u);
     }
+    decompose(graph, res, w);
 
-    vector<int> depth(n);
-    vector<vector<int>> dp(n);
-    int steps = 0;
-    while ((1 << steps) <= n) ++steps;
-    for (int i = 0; i < n; ++i) dp[i].resize(steps + 1);
-    
-    build(graph, depth, dp, steps);
-    
-    cin >> m;
-    vector<int> a(n), b(n);
-    for (int i = 0; i < m; ++i) {
-        cin >> u >> v; --u; --v;
-        ++a[u]; ++a[v];
-        ++b[lca(depth, dp, steps, u, v)];
+    for (int i = 1; i < n; ++i) {
+        cout << res[i] << ' ';
     }
-    int res = 0;
-    count(graph, dp, a, b, res, 0);
-    cout << res << endl;
+    cout << endl;
 }

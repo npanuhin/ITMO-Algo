@@ -256,17 +256,6 @@ vector<long long> matrix_binpow(vector<T1> &matrix, int matrix_size, T2 power) {
 // #define int long long
 #define endl '\n'
 
-void build(vector<vector<int>> &graph, vector<int> &depth, vector<vector<int>> &dp, int steps, int v = 0, int p = 0) {
-    if (p != v) depth[v] = depth[p] + 1;
-
-    dp[v][0] = p;
-    for (int i = 1; i <= steps; ++i) dp[v][i] = dp[dp[v][i - 1]][i - 1];
-
-    for (int next : graph[v]) {
-        if (next != p) build(graph, depth, dp, steps, next, v);
-    }
-}
-
 int lca(vector<int> &depth, vector<vector<int>> &dp, int steps, int u, int v) {
     if (depth[v] > depth[u]) swap(v, u);
 
@@ -286,47 +275,57 @@ int lca(vector<int> &depth, vector<vector<int>> &dp, int steps, int u, int v) {
     return dp[v][0];
 }
 
-int count(vector<vector<int>> &graph, vector<vector<int>> &dp, vector<int> &a, vector<int> &b, int &res, int v = 0) {
-    int r = a[v], tmp;
+void build(vector<vector<int>> &graph, vector<int> &depth, vector<vector<int>> &dp, vector<int> &tin, int &t, int steps, int v = 0, int p = 0) {
+    if (p != v) depth[v] = depth[p] + 1;
+    tin[v] = t++;
+
+    dp[v][0] = p;
+    for (int i = 1; i <= steps; ++i) dp[v][i] = dp[dp[v][i - 1]][i - 1];
+
     for (int next : graph[v]) {
-        if (next != dp[v][0]) {
-            tmp = count(graph, dp, a, b, res, next);
-            if (tmp == 0) ++res;
-            r += tmp;
-        }
+        if (next != p) build(graph, depth, dp, tin, t, steps, next, v);
     }
-    return r - 2 * b[v];
 }
 
 signed main() {
     ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-    
-    int n, m, u, v;
+
+    int n, p, g, k;
     cin >> n;
 
-    vector<vector<int>> graph(n);
-    for (int i = 0; i < n - 1; ++i) {
-        cin >> u >> v; --u; --v;
-        graph[u].push_back(v);
-        graph[v].push_back(u);
-    }
-
-    vector<int> depth(n);
-    vector<vector<int>> dp(n);
+    vector<int> depth(n + 1);
+    vector<vector<int>> dp(n + 1);
     int steps = 0;
     while ((1 << steps) <= n) ++steps;
-    for (int i = 0; i < n; ++i) dp[i].resize(steps + 1);
-    
-    build(graph, depth, dp, steps);
-    
-    cin >> m;
-    vector<int> a(n), b(n);
-    for (int i = 0; i < m; ++i) {
-        cin >> u >> v; --u; --v;
-        ++a[u]; ++a[v];
-        ++b[lca(depth, dp, steps, u, v)];
+    for (int i = 0; i <= n; ++i) dp[i].resize(steps + 1);
+
+    vector<vector<int>> graph(n + 1);
+    for (int i = 1; i <= n; ++i) {
+        cin >> p;
+        p = max(p, 0);
+        graph[i].push_back(p);
+        graph[p].push_back(i);
     }
-    int res = 0;
-    count(graph, dp, a, b, res, 0);
-    cout << res << endl;
+
+    vector<int> tin(n + 1);
+    int t = 0;
+    build(graph, depth, dp, tin, t, steps);
+
+    auto tin_cmp = [&](int a, int b) {return tin[a] < tin[b];};
+
+    cin >> g;
+    for (int req = 0; req < g; ++req) {
+        cin >> k;
+        vector<int> a(k);
+        a.push_back(0);
+        for (int i = 0; i < k; ++i) cin >> a[i];
+
+        sort(all(a), tin_cmp);
+
+        int res = 0;
+        for (int i = 0; i < k; ++i) res += depth[a[i]] + depth[a[i + 1]] - 2 * depth[lca(depth, dp, steps, a[i], a[i + 1])];
+                                    res += depth[a[0]] +   depth[a[k]]   - 2 * depth[lca(depth, dp, steps, a[0],   a[k]  )];
+
+        cout << res / 2 << endl;
+    }
 }
