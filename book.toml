@@ -33,6 +33,9 @@ cname = "algo.itmo.npanuhin.me"
 [output.html.search]
 enable = false
 
+[output.html.print]
+enable = false
+
 # [preprocessor.mathjax]
 # command = "python mathjax.py"
 
