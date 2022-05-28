@@ -9,3 +9,8 @@ html.navy .light_theme, html.coal .light_theme, html.ayu .light_theme {
 main p, main ol li, main ul li {
 	text-align: justify;
 }
+
+.katex {
+    font-size: 124% !important;
+    line-height: 1em !important;
+}

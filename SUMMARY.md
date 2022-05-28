@@ -1,6 +1,6 @@
 # Summary
 
-[Home](README.md)
+[Алгоритмы и структуры данных](README.md)
 
 # 1 курс
 - [Сортировки, куча, бинпоиск](Sort,%20heap,%20binsearch/README.md)
