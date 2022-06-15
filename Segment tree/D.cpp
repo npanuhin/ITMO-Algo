@@ -268,7 +268,7 @@ void build(vector<int> &tree, vector<int> &src, int v, int tl, int tr) {
 
 int get_kth(vector<int> &tree, int v, int tl, int tr, int k) {
     if (tl == tr) return tl;
-    
+
     int tm = (tl + tr) / 2;
     if (k <= tree[v * 2]) {
         return get_kth(tree, v * 2, tl, tm, k);

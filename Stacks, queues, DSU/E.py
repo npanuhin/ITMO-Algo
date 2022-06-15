@@ -9,5 +9,4 @@ for item in input().split():
     else:
         stack.append(int(item))
 
-
 print(stack[0])

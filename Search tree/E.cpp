@@ -328,7 +328,7 @@ int find_kth(Node *&t, int k) {
     if (leftsize == k) return t->x;
 
     if (leftsize > k) return find_kth(t->l, k);
-    
+
     return find_kth(t->r, k - leftsize - 1);
 }
 

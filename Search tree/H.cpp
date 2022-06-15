@@ -276,7 +276,7 @@ void push(Node *t) {
         if (t->l != nullptr) t->l->reversed ^= true;
         if (t->r != nullptr) t->r->reversed ^= true;
     }
-} 
+}
 
 int get_size(Node *&t) {
     return t == nullptr ? 0 : t->size;
@@ -292,7 +292,7 @@ Node* merge(Node *t1, Node *t2) {
     if (t1 == nullptr || t2 == nullptr) return t1 ? t1 : t2;
     push(t1);
     push(t2);
-    
+
     if (t1->y > t2->y) {
         t1->r = merge(t1->r, t2);
         update_size(t1);

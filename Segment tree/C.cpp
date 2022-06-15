@@ -261,7 +261,7 @@ struct Node {
     Node(){}
 
     Node(long long _sum, long long _ans, long long _pref, long long _suff) {
-        sum = _sum; ans = _ans; pref = _pref; suff = _suff; 
+        sum = _sum; ans = _ans; pref = _pref; suff = _suff;
     }
 
     Node(long long val) {
@@ -287,7 +287,7 @@ Node combine(Node left, Node right) {
         )
     );
 }
- 
+
 void build(vector<Node> &tree, vector<int> &a, int v, int tl, int tr) {
     if (tl == tr) {
         tree[v] = Node(a[tl]);
@@ -298,20 +298,20 @@ void build(vector<Node> &tree, vector<int> &a, int v, int tl, int tr) {
         tree[v] = combine(tree[v * 2], tree[v * 2 + 1]);
     }
 }
- 
+
 Node get_maxsum_segment(vector<Node> &tree, int v, int tl, int tr, int l, int r) {
     if (l == tl && r == tr) return tree[v];
 
     int tm = (tl + tr) / 2;
     if (r <= tm) return get_maxsum_segment(tree, v * 2, tl, tm, l, r);
     if (l > tm) return get_maxsum_segment(tree, v * 2 + 1, tm + 1, tr, l, r);
-    
+
     return combine(
         get_maxsum_segment(tree, v * 2, tl, tm, l, tm),
         get_maxsum_segment(tree, v * 2 + 1, tm + 1, tr, tm + 1, r)
     );
 }
- 
+
 void update(vector<Node> &tree, int v, int tl, int tr, int pos, int new_val) {
     if (tl == tr) {
         tree[v] = Node(new_val);

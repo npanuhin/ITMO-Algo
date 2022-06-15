@@ -260,7 +260,7 @@ pair<int, int> combine(pair<int, int> a, pair<int, int> b) {
     if (a.first > b.first) return b;
     return make_pair(a.first, a.second + b.second);
 }
- 
+
 void build(vector<pair<int, int>> &tree, vector<int> &a, int v, int tl, int tr) {
     if (tl == tr) {
         tree[v] = make_pair(a[tl], 1);
@@ -271,7 +271,7 @@ void build(vector<pair<int, int>> &tree, vector<int> &a, int v, int tl, int tr) 
         tree[v] = combine(tree[v * 2], tree[v * 2 + 1]);
     }
 }
- 
+
 pair<int, int> get_min(vector<pair<int, int>> &tree, int v, int tl, int tr, int l, int r) {
     if (l > r) return make_pair(INT_MAX, 0);
 
@@ -283,7 +283,7 @@ pair<int, int> get_min(vector<pair<int, int>> &tree, int v, int tl, int tr, int 
         get_min(tree, v * 2 + 1, tm + 1, tr, max(l, tm + 1), r)
     );
 }
- 
+
 void update(vector<pair<int, int>> &tree, int v, int tl, int tr, int pos, int new_val) {
     if (tl == tr) {
         tree[v] = make_pair(new_val, 1);

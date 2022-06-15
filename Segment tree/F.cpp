@@ -268,7 +268,7 @@ long long get_min(vector<pair<long long, long long>> &tree, int v, int tl, int t
         get_min(tree, v * 2 + 1, tm + 1, tr, max(l, tm + 1), r)
     ) + additional;
 }
- 
+
 void update(vector<pair<long long, long long>> &tree, int v, int tl, int tr, int l, int r, int value) {
     if (l > r) return;
 

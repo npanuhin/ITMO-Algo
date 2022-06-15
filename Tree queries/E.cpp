@@ -300,7 +300,7 @@ int count(vector<vector<int>> &graph, vector<vector<int>> &dp, vector<int> &a, v
 
 signed main() {
     ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-    
+
     int n, m, u, v;
     cin >> n;
 
@@ -316,9 +316,9 @@ signed main() {
     int steps = 0;
     while ((1 << steps) <= n) ++steps;
     for (int i = 0; i < n; ++i) dp[i].resize(steps + 1);
-    
+
     build(graph, depth, dp, steps);
-    
+
     cin >> m;
     vector<int> a(n), b(n);
     for (int i = 0; i < m; ++i) {

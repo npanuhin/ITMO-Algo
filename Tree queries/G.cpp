@@ -288,7 +288,7 @@ int lca(vector<int> &depth, vector<vector<int>> &lca_dp, int max_i, int u, int v
 
 long long segtree_get(vector<long long> &tree, int v, int tl, int tr, int pos) {
     if (tl == tr) return tree[v];
-    
+
     int tm = (tl + tr) / 2;
     if (pos <= tm) {
         return tree[v] + segtree_get(tree, v * 2, tl, tm, pos);
@@ -296,7 +296,7 @@ long long segtree_get(vector<long long> &tree, int v, int tl, int tr, int pos) {
         return tree[v] + segtree_get(tree, v * 2 + 1, tm + 1, tr, pos);
     }
 }
- 
+
 void segtree_update(vector<long long> &tree, int v, int tl, int tr, int l, int r, int value) {
     if (l > r) return;
 

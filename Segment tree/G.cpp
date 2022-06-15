@@ -257,7 +257,7 @@ vector<long long> matrix_binpow(vector<T1> &matrix, int matrix_size, T2 power) {
 
 void push_tree(vector<pair<int, int>> &tree, int v) {
     if (tree[v].second != -1) {
-        tree[v * 2].first = tree[v * 2 + 1].first = 
+        tree[v * 2].first = tree[v * 2 + 1].first =
             tree[v * 2].second = tree[v * 2 + 1].second = tree[v].second;
         tree[v].second = -1;
     }
@@ -276,7 +276,7 @@ int get_min(vector<pair<int, int>> &tree, int v, int tl, int tr, int l, int r) {
         get_min(tree, v * 2 + 1, tm + 1, tr, max(l, tm + 1), r)
     );
 }
- 
+
 void update(vector<pair<int, int>> &tree, int v, int tl, int tr, int l, int r, int value) {
     if (l > r) return;
 
