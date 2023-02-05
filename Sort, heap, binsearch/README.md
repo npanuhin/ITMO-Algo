@@ -28,7 +28,7 @@
 
 Выходные данные
 ```cpp
-1 1 2 2 3 3 4 6 7 8 
+1 1 2 2 3 3 4 6 7 8
 ```
 
 ### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/A.cpp)
@@ -58,7 +58,7 @@
 
 Выходные данные
 ```cpp
-2 3 4 5 7 
+2 3 4 5 7
 ```
 
 ### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/B.cpp)
@@ -180,7 +180,7 @@
 
 Выходные данные
 ```cpp
-5 2 2 0 
+5 2 2 0
 ```
 
 ### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/E.cpp)

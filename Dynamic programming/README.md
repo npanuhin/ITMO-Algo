@@ -32,7 +32,7 @@
 ```cpp
 7
 3
-1 2 4 5 
+1 2 4 5
 ```
 
 Входные данные
@@ -45,7 +45,7 @@
 ```cpp
 -16
 4
-1 3 6 8 10 
+1 3 6 8 10
 ```
 
 Входные данные
@@ -58,7 +58,7 @@
 ```cpp
 14
 7
-1 6 7 8 9 10 11 12 
+1 6 7 8 9 10 11 12
 ```
 
 ### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/A.cpp)
@@ -135,7 +135,7 @@ RDRDDRR
 Выходные данные
 ```cpp
 3
-1 4 5 
+1 4 5
 ```
 
 Входные данные
@@ -147,7 +147,7 @@ RDRDDRR
 Выходные данные
 ```cpp
 3
-1 2 3 
+1 2 3
 ```
 
 ### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/C.cpp)
@@ -345,7 +345,7 @@ ACDEXGIH
 Выходные данные
 ```cpp
 666
-4 5 2 3 1 
+4 5 2 3 1
 ```
 
 ### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/H.cpp)
