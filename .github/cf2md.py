@@ -10,8 +10,6 @@ import re
 # >[^>]+\_.+\_[^<]+<[^\/]
 # [^\\]\|
 
-TITLE = "Дерево отрезков"
-
 
 def regex_replace(pattern, replace, text, flags=re.DOTALL | re.UNICODE):
     old_text = ""
@@ -81,15 +79,27 @@ def md_latex(text):
         text
     )
 
+    # text = regex_replace(
+    #     r"\${6}(.+?)\${6}",
+    #     r'<p tex="\1"><pre>\1</pre></p>',
+    #     text
+    # )
+
+    # text = regex_replace(
+    #     r"\${3}(.+?)\${3}",
+    #     r'<span tex="\1">\1</span>',
+    #     text
+    # )
+
     text = regex_replace(
         r"\${6}(.+?)\${6}",
-        r'<p tex="\1"><pre>\1</pre></p>',
+        r"$$\1$$",
         text
     )
 
     text = regex_replace(
         r"\${3}(.+?)\${3}",
-        r'<span tex="\1">\1</span>',
+        r"$\1$",
         text
     )
 
@@ -105,10 +115,10 @@ def pretty(string, strip=True):
 
 
 def soup_text(soup):
-    return pretty("".join(soup.findAll(text=True, recursive=False)))
+    return pretty("".join(soup.findAll(string=True, recursive=False)))
 
 
-def problem2md(soup):
+def parse_problem(soup):
     problem = {}
 
     # Header
@@ -193,7 +203,7 @@ def problem2md(soup):
     return problem
 
 
-def main(url):
+def main(url, folder_name):
     print("Starting...")
     if not os.path.isdir("cf2md"):
         os.mkdir("cf2md")
@@ -204,7 +214,6 @@ def main(url):
     soup = BeautifulSoup(session.get(url).text, "lxml").find("body")
 
     print("Parsing...")
-
     with open("cf2md/page.html", 'w', encoding="utf-8") as file:
         file.write(soup.prettify())
 
@@ -212,23 +221,33 @@ def main(url):
     #     soup = BeautifulSoup(file.read(), "lxml").find("div", class_="problem-statement")
 
     with open("cf2md/README.md", 'w', encoding="utf-8") as file:
+        title = soup.find("div", id="body").find("div", class_="compact-problemset").find("div", class_="caption").text
+        title = title[title.find('. ') + 2:].strip()
+
+        problems = [parse_problem(problem) for problem in soup.findAll("div", class_="problem-statement")]
+
+        problem_letters = [
+            problem['title'][:problem['title'].find('.')]
+            for problem in problems
+        ]
+
         for line in (
-            "<!-- {{#title ​{}}} -->".format(TITLE),
+            f"<!-- {{{{#title ​{title}}}}} -->",
+            f"<!-- toc[{','.join(problem_letters)}] -->",
             "",
-            '<h1 align="center">{}</h1>'.format(TITLE),
+            f'<h1 align="center">{title}</h1>',
             "",
             ""
         ):
             print(line, file=file)
 
-        for problem in soup.findAll("div", class_="problem-statement"):
-            problem = problem2md(problem)
+        for i, problem in enumerate(problems):
 
             for line in (
-                "## {}".format(problem["title"]),
+                f"## {problem['title']}",
                 "",
-                "##### Ограничение по времени на тест: {}".format(problem["time_limit"]),
-                "##### Ограничение по памяти на тест: {}".format(problem["memory_limit"]),
+                f"##### Ограничение по времени на тест: {problem['time_limit']}",
+                f"##### Ограничение по памяти на тест: {problem['memory_limit']}",
                 "",
                 problem["statement"],
                 "",
@@ -257,13 +276,13 @@ def main(url):
                         )
                     )
                 ),
-                "### [Решение]({}.cpp)".format(problem["title"][:problem["title"].find('.')]),
+                f"### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/{folder_name.replace(' ', '%20')}/{problem_letters[i]}.cpp)",
                 "",
                 ""
             ):
                 print(line, file=file)
 
-            print(problem)
+            # print(problem)
 
     with open("cf2md/README.md", 'r', encoding="utf-8") as file:
         result = file.read()
@@ -273,4 +292,4 @@ def main(url):
 
 
 if __name__ == "__main__":
-    main("https://codeforces.com/group/dAhOSPf3oD/contest/370734/problems?locale=ru")
+    main("https://codeforces.com/group/dAhOSPf3oD/contest/349149/problems?locale=ru", "Sort, heap, binsearch")
