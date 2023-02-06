@@ -292,4 +292,4 @@ def main(url, folder_name):
 
 
 if __name__ == "__main__":
-    main("https://codeforces.com/group/dAhOSPf3oD/contest/349149/problems?locale=ru", "Sort, heap, binsearch")
+    main("https://codeforces.com/group/dAhOSPf3oD/contest/377027/problems?locale=ru", "Search tree")
