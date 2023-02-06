@@ -6,47 +6,84 @@ on:
       - 'master'
   workflow_dispatch:
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  build:
+  deploy:
     name: Build GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
         uses: actions/checkout@v3
-        with:
-          ssh-key: ${{ secrets.SSH_KEY }}
 
       - name: Setup mdBook
-        uses: peaceiris/actions-mdbook@v1.1.14
-        with:
-          mdbook-version: 'latest'
+        uses: peaceiris/actions-mdbook@v1
 
-      - name: Rust's Cargo cache
-        id: cargo-cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.cargo/bin/
-          key: Cargo-${{ runner.os }}
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v3
 
-      - name: Download mdBook extensions (cached)
-        if: steps.cargo-cache.outputs.cache-hit != 'true'
-        run: cargo install mdbook-admonish
+      # - name: Rust's Cargo cache
+      #   id: cargo-cache
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: ~/.cargo/bin/
+      #     key: Cargo-${{ runner.os }}
 
-      - name: Install mdBook extensions
-        run: |
-          mkdir -p .github/mdbook
-          mdbook-admonish install --css-dir .github/assets
+      # - name: Download mdBook extensions (cached)
+      #   if: steps.cargo-cache.outputs.cache-hit != 'true'
+      #   run: cargo install mdbook-admonish
+
+      # - name: Install mdBook extensions
+      #   run: |
+      #     mkdir -p .github/mdbook
+      #     mdbook-admonish install --css-dir .github/assets
 
       - name: Build mdBook
-        working-directory: .github
-        run: mdbook build ../
+        run: mdbook build
 
-      - name: Deploy website
-        uses: peaceiris/actions-gh-pages@v3
+      # - name: Deploy website
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     publish_branch: gh-pages
+      #     publish_dir: .github/mdbook
+      #     exclude_assets:
+      #     force_orphan: true
+      #     full_commit_message: Updated GitHub Pages
+
+      # - name: Upload artifact  # This excludes .github folder
+      #   uses: actions/upload-pages-artifact@v1
+      #   with:
+      #     path: .github/mdbook
+
+      - name: Create artifact
+        run: |
+          chmod -c -R +rX ".github/mdbook" | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
+          tar \
+            --dereference --hard-dereference \
+            --directory ".github/mdbook" \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
+            .
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
         with:
-          deploy_key: ${{ secrets.SSH_KEY }}
-          publish_branch: gh-pages
-          publish_dir: .github/mdbook
-          exclude_assets:
-          force_orphan: true
-          full_commit_message: Updated GitHub Pages
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
