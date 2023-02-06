@@ -13,22 +13,21 @@ default-theme = "light"
 preferred-dark-theme = "navy"
 additional-css = [
 	'.github/assets/adjustments.css',
-	'.github/assets/katex/katex.min.css',
 	'.github/assets/problem_toc.css',
-	'.github/assets/mdbook-admonish.css'
+	# '.github/assets/mdbook-admonish.css',
+	'.github/assets/katex/katex.min.css'
 ]
 additional-js = [
 	'.github/assets/problem_toc.js',
 	'.github/assets/katex/katex.min.js',
 	'.github/assets/katex/contrib/auto-render.min.js',
-	'.github/assets/katex.js'
+	'.github/assets/katex_fix.js'
 ]
 no-section-label = true
 git-repository-url = "https://github.com/npanuhin/ITMO-Algo"
-edit-url-template = "https://github.com/npanuhin/ITMO-Algo/edit/master/{path}"
+# edit-url-template = "https://github.com/npanuhin/ITMO-Algo/edit/master/{path}"
 # input-404 = ""
 cname = "algo.itmo.npanuhin.me"
-# mathjax-support = false
 
 [output.html.search]
 enable = false
@@ -36,11 +35,9 @@ enable = false
 [output.html.print]
 enable = false
 
-# [preprocessor.mathjax]
-# command = "python mathjax.py"
-
 [preprocessor.problem_toc]
-command = "python problem_toc.py"
+command = "python .github/problem_toc.py"
 
-[preprocessor.admonish]
-command = "mdbook-admonish"
+# [preprocessor.admonish]
+# command = "mdbook-admonish"
+# assets_version = "1.0.0" # do not edit: managed by `mdbook-admonish install`
