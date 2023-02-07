@@ -31,7 +31,7 @@
 1 1 2 2 3 3 4 6 7 8
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/A.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/A.cpp" target="_blank">Решение</a></h3>
 
 
 ## B. Сортировка подсчетом
@@ -61,7 +61,7 @@
 2 3 4 5 7
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/B.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/B.cpp" target="_blank">Решение</a></h3>
 
 
 ## C. Количество инверсий
@@ -100,7 +100,7 @@
 6
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/C.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/C.cpp" target="_blank">Решение</a></h3>
 
 
 ## D. Хипуй!
@@ -144,7 +144,7 @@
 50
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/D.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/D.cpp" target="_blank">Решение</a></h3>
 
 
 ## E. Быстрый поиск в массиве
@@ -183,7 +183,7 @@
 5 2 2 0
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/E.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/E.cpp" target="_blank">Решение</a></h3>
 
 
 ## F. Приближенный двоичный поиск
@@ -218,7 +218,7 @@
 5
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/F.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/F.cpp" target="_blank">Решение</a></h3>
 
 
 ## G. Очень Легкая Задача
@@ -255,7 +255,7 @@
 4
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/G.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/G.cpp" target="_blank">Решение</a></h3>
 
 
 ## H. Квадратный корень и квадратный квадрат
@@ -292,7 +292,7 @@
 4.0
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/H.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/H.cpp" target="_blank">Решение</a></h3>
 
 
 ## I. Поляна дров
@@ -329,7 +329,7 @@
 0.783310604
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/I.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/I.cpp" target="_blank">Решение</a></h3>
 
 
 ## J. K-best
@@ -366,7 +366,7 @@ $$\frac{\sum\limits_{j=1}^{k}v_{i_j}}{\sum\limits_{j=1}^{k}w_{i_j}}$$
 2
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/J.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/J.cpp" target="_blank">Решение</a></h3>
 
 
 ## K. Разделение массива
@@ -394,7 +394,7 @@ $$\frac{\sum\limits_{j=1}^{k}v_{i_j}}{\sum\limits_{j=1}^{k}w_{i_j}}$$
 12
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/K.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/K.cpp" target="_blank">Решение</a></h3>
 
 
 ## L. Таблица умножения
@@ -431,7 +431,7 @@ $$\frac{\sum\limits_{j=1}^{k}v_{i_j}}{\sum\limits_{j=1}^{k}w_{i_j}}$$
 10
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/L.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/L.cpp" target="_blank">Решение</a></h3>
 
 
 ## M. K-я сумма
@@ -460,4 +460,4 @@ $$\frac{\sum\limits_{j=1}^{k}v_{i_j}}{\sum\limits_{j=1}^{k}w_{i_j}}$$
 9
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/M.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Sort,%20heap,%20binsearch/M.cpp" target="_blank">Решение</a></h3>

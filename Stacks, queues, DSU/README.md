@@ -42,7 +42,7 @@
 2
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/A.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/A.cpp" target="_blank">Решение</a></h3>
 
 
 ## B. Шарики
@@ -81,7 +81,7 @@
 10
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/B.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/B.cpp" target="_blank">Решение</a></h3>
 
 
 ## C. Астроград
@@ -135,7 +135,7 @@
 6.  В очередь пришел человек с $id = 2$. Очередь: `[ 2 ]`
 7.  $q = 2$ хочет знать, сколько человек стоит перед ним. Очередь: `[ 2 ]`
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/C.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/C.cpp" target="_blank">Решение</a></h3>
 
 
 ## D. Гоблины и шаманы
@@ -179,7 +179,7 @@
 3
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/D.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/D.cpp" target="_blank">Решение</a></h3>
 
 
 ## E. Постфиксная запись
@@ -208,7 +208,7 @@
 -102
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/E.py)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/E.py" target="_blank">Решение</a></h3>
 
 
 ## F. Сортировка стеком
@@ -248,7 +248,7 @@ pop
 impossible
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/F.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/F.cpp" target="_blank">Решение</a></h3>
 
 
 ## G. Система непересекающихся множеств
@@ -291,7 +291,7 @@ get 5
 1 5 5
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/G.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/G.cpp" target="_blank">Решение</a></h3>
 
 
 ## H. Подсчет опыта
@@ -336,7 +336,7 @@ get 3
 50
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/H.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/H.cpp" target="_blank">Решение</a></h3>
 
 
 ## I. Кукушки
@@ -422,4 +422,4 @@ No
 
 Для добавления яйца $(5, 3)$ понадобится 5 перекладываний яиц, а после этого никакое новое яйцо за конечное количество шагов добавить уже нельзя.
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/I.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Stacks,%20queues,%20DSU/I.cpp" target="_blank">Решение</a></h3>

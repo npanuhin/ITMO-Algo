@@ -38,7 +38,7 @@
 14
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/A.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/A.cpp" target="_blank">Решение</a></h3>
 
 
 ## B. Число минимумов на отрезке
@@ -76,7 +76,7 @@
 2 3
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/B.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/B.cpp" target="_blank">Решение</a></h3>
 
 
 ## C. Отрезок с максимальной суммой
@@ -123,7 +123,7 @@
 3
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/C.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/C.cpp" target="_blank">Решение</a></h3>
 
 
 ## D. K-я единица
@@ -165,7 +165,7 @@
 1
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/D.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/D.cpp" target="_blank">Решение</a></h3>
 
 
 ## E. Первый элемент не меньше X - 2
@@ -207,7 +207,7 @@
 3
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/E.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/E.cpp" target="_blank">Решение</a></h3>
 
 
 ## F. Прибавление и минимум
@@ -249,7 +249,7 @@
 0
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/F.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/F.cpp" target="_blank">Решение</a></h3>
 
 
 ## G. Присваивание и минимум
@@ -291,7 +291,7 @@
 0
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/G.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/G.cpp" target="_blank">Решение</a></h3>
 
 
 ## H. Присваивание, прибавление и сумма
@@ -335,7 +335,7 @@
 4
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/H.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/H.cpp" target="_blank">Решение</a></h3>
 
 
 ## I. Криптография
@@ -388,7 +388,7 @@
 1 2
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/I.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/I.cpp" target="_blank">Решение</a></h3>
 
 
 ## J. Землетрясения
@@ -432,7 +432,7 @@
 3
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/J.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/J.cpp" target="_blank">Решение</a></h3>
 
 
 ## K. Художник
@@ -474,7 +474,7 @@ W 0 10
 0 0
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/K.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/K.cpp" target="_blank">Решение</a></h3>
 
 
 ## L. Окна
@@ -516,7 +516,7 @@ W 0 10
 0 1
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/L.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/L.cpp" target="_blank">Решение</a></h3>
 
 
 ## M. Звезды
@@ -563,7 +563,7 @@ W 0 10
 2
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/M.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/M.cpp" target="_blank">Решение</a></h3>
 
 
 <!-- ## $K$-я порядковая статистика на отрезке -->
@@ -627,4 +627,4 @@ $$
 15
 ```
 
-<!-- ### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/N.cpp) -->
+<!-- <h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Segment%20tree/N.cpp" target="_blank">Решение</a></h3> -->

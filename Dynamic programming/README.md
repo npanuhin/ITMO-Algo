@@ -61,7 +61,7 @@
 1 6 7 8 9 10 11 12
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/A.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/A.cpp" target="_blank">Решение</a></h3>
 
 
 ## B. Черепаха и монеты
@@ -107,7 +107,7 @@ RRDD
 RDRDDRR
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/B.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/B.cpp" target="_blank">Решение</a></h3>
 
 
 ## C. Наибольшая возрастающая подпоследовательность
@@ -150,7 +150,7 @@ RDRDDRR
 1 2 3
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/C.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/C.cpp" target="_blank">Решение</a></h3>
 
 
 ## D. Ход конем
@@ -191,7 +191,7 @@ RDRDDRR
 16
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/D.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/D.cpp" target="_blank">Решение</a></h3>
 
 
 ## E. Расстояние по Левенштейну
@@ -228,7 +228,7 @@ ACDEXGIH
 3
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/E.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/E.cpp" target="_blank">Решение</a></h3>
 
 
 ## F. Кафе
@@ -282,7 +282,7 @@ ACDEXGIH
 2
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/F.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/F.cpp" target="_blank">Решение</a></h3>
 
 
 ## G. Удаление скобок 2.0
@@ -309,7 +309,7 @@ ACDEXGIH
 []
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/G.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/G.cpp" target="_blank">Решение</a></h3>
 
 
 ## H. Продавец аквариумов
@@ -348,7 +348,7 @@ ACDEXGIH
 4 5 2 3 1
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/H.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/H.cpp" target="_blank">Решение</a></h3>
 
 
 ## I. Замощение доминошками
@@ -405,7 +405,7 @@ ACDEXGIH
 4
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/I.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/I.cpp" target="_blank">Решение</a></h3>
 
 
 ## J. Симпатичные узоры
@@ -448,7 +448,7 @@ ACDEXGIH
 2
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/J.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/J.cpp" target="_blank">Решение</a></h3>
 
 
 ## K. Мультирюкзак
@@ -488,4 +488,4 @@ ACDEXGIH
 1 4
 ```
 
-### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/K.cpp)
+<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Dynamic%20programming/K.cpp" target="_blank">Решение</a></h3>

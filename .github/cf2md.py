@@ -276,7 +276,7 @@ def main(url, folder_name):
                         )
                     )
                 ),
-                f"### [Решение](https://github.com/npanuhin/ITMO-Algo/blob/master/{folder_name.replace(' ', '%20')}/{problem_letters[i]}.cpp)",
+                f'<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/{folder_name.replace(" ", "%20")}/{problem_letters[i]}.cpp" target="_blank">Решение</a></h3>',
                 "",
                 ""
             ):
