@@ -73,11 +73,11 @@ def md_latex(text):
         text
     )
 
-    text = regex_replace(
-        r"((?:\${3}){1,2}[^\$]*?)\s*\\cdot\s*([^\$]*?(?:\${3}){1,2})",
-        r"\1·\2",
-        text
-    )
+    # text = regex_replace(
+    #     r"((?:\${3}){1,2}[^\$]*?)\s*\\cdot\s*([^\$]*?(?:\${3}){1,2})",
+    #     r"\1 · \2",
+    #     text
+    # )
 
     # text = regex_replace(
     #     r"\${6}(.+?)\${6}",
@@ -292,4 +292,4 @@ def main(url, folder_name):
 
 
 if __name__ == "__main__":
-    main("https://codeforces.com/group/dAhOSPf3oD/contest/377027/problems?locale=ru", "Search tree")
+    main("https://codeforces.com/group/dAhOSPf3oD/contest/381446/problems?locale=ru", "Tree queries")
