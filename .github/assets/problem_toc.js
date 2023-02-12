@@ -11,7 +11,7 @@ if (toc !== null) {
 
         toc_headers[i].getElementsByTagName("a")[0].addEventListener("click", function (e){
             e.preventDefault();
-            
+
             const target = this.getAttribute("href");
 
             window.scrollTo({

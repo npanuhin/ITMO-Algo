@@ -657,4 +657,4 @@ size 1
 2
 ```
 
-<h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Tree%20queries/L.cpp" target="_blank">Решение</a></h3>
+<!-- <h3><a href="https://github.com/npanuhin/ITMO-Algo/blob/master/Tree%20queries/L.cpp" target="_blank">Решение</a></h3> -->
