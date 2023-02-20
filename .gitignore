@@ -6,7 +6,6 @@ __pycache__/
 
 # mdBook
 /.github/mdbook/
-/.github/assets/mdbook-admonish.css
 
 # cf2md
 /.github/cf2md/

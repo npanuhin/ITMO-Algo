@@ -14,7 +14,6 @@ preferred-dark-theme = "navy"
 additional-css = [
 	'.github/assets/adjustments.css',
 	'.github/assets/problem_toc.css',
-	# '.github/assets/mdbook-admonish.css',
 	'.github/assets/katex/katex.min.css'
 ]
 additional-js = [
@@ -37,7 +36,3 @@ enable = false
 
 [preprocessor.problem_toc]
 command = "python .github/problem_toc.py"
-
-# [preprocessor.admonish]
-# command = "mdbook-admonish"
-# assets_version = "1.0.0" # do not edit: managed by `mdbook-admonish install`
